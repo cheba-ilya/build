@@ -26,6 +26,7 @@ pipeline {
             steps {
                 echo " ============== start building image =================="
                 sh 'docker build -t cheba2011/neslojno:latest . '
+                sh 'ls -l'
                 }
         }
         stage("docker push") {
