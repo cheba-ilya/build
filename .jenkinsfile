@@ -37,5 +37,20 @@ pipeline {
                 '''
             }
         }
+       stage("teraform apply") {
+           steps {
+            withCredentials([[$class:'AmazonWebServicesCredentialsBinding',credentialsId:'credentials',accessKeyVariable:'AWS_ACCESS_KEY_ID',secretKeyVariable:'AWS_SECRET_ACCESS_KEY']]){
+                echo " ============== teraform apply =================="
+               
+                sh 'terraform init'
+                   sh 'ls -l'
+                sh 'pwd'
+                sh 'terraform apply -auto-approve'
+                sh 'terraform output > outputs.txt'
+                sh 'cut outputs.txt -d \' \' -f3 > txt.txt'
+                
+                }
+           }
+        } 
     }
 }
