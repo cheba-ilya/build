@@ -20,7 +20,7 @@ resource "aws_instance" "web_server_test" {
   }
 }
 
-resource "new_security_group" "web_server_test" {
+resource "aws_security_group" "web_server_test" {
   name        = "web server security group"
   description = "Allow 80,433,8080,22 tcp"
 
