@@ -14,7 +14,7 @@ resource "aws_instance" "web_server_test" {
   user_data = file("script.sh")
 
   tags =  {
-    Name = "ubuntu server"
+    Name = "Ubuntu Server 18.04"
     Owner = "chebotarev"
     Project = "Terraform_proj"
   }
