@@ -2,25 +2,25 @@
 # Build web sever
 
 provider "aws" {
-    region = "us-east-2"
+    region = "us-east-1"
    
 }
 
 resource "aws_instance" "web_server_test" {
-  ami = "ami-0fc20dd1da406780b" # aws
+  ami = "ami-07ebfd5b3428b6f4d" # aws
   instance_type = "t2.micro"
-  key_name = "MyKeyPair"
+  key_name = "wordaaaa.pem"
   vpc_security_group_ids = [aws_security_group.web_server_test.id]
-  user_data = file("bash.sh")
+  user_data = file("script.sh")
 
   tags =  {
-    Name = "AWS server"
-    Owner = "Artem Minaev"
-    Project = "Terraform test"
+    Name = "ubuntu server"
+    Owner = "chebotarev"
+    Project = "Terraform_proj"
   }
 }
 
-resource "aws_security_group" "web_server_test" {
+resource "new_security_group" "web_server_test" {
   name        = "web server security group"
   description = "Allow 80,433,8080,22 tcp"
 
