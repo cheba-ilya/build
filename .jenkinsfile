@@ -46,7 +46,9 @@ pipeline {
                 sh 'terraform apply -auto-approve'
                 sh 'terraform output > outputs.txt'
                 sh 'cut outputs.txt -d \' \' -f3 > txt.txt'
-                sh 'ssh -tt -o "StrictHostKeyChecking no" -i "/var/lib/jenkins/wordaaaa" ubuntu@$(cat txt.txt) 'pwd''
+                sh '''  
+                ssh -tt -o "StrictHostKeyChecking no" -i "/var/lib/jenkins/wordaaaa" ubuntu@$(cat txt.txt) 'pwd'
+                '''
                 
                 }
            }
