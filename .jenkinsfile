@@ -11,6 +11,7 @@ pipeline {
         buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
         timestamps()
     }
+    
     stages {
         stage("docker login") {
             steps {
