@@ -16,7 +16,7 @@ resource "aws_instance" "web_server_test" {
   tags =  {
     Name = "Ubuntu Server 18.04"
     Owner = "chebotarev"
-    Project = "Terraform_proj"
+    Project = "Epam_test_project"
   }
 }
 
