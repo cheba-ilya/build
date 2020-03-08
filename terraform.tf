@@ -9,7 +9,7 @@ provider "aws" {
 resource "aws_instance" "web_server_test" {
   ami = "ami-07ebfd5b3428b6f4d" # aws
   instance_type = "t2.micro"
-  key_name = "wordaaaa"
+  key_name = "wordaaa"
   vpc_security_group_ids = [aws_security_group.web_server_test.id]
   user_data = file("script.sh")
 
