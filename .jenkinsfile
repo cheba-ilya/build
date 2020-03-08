@@ -47,7 +47,7 @@ pipeline {
                 sh 'terraform output > outputs.txt'
                 sh 'cut outputs.txt -d \' \' -f3 > txt.txt'
                 sh '''  
-                ssh -tt -o "StrictHostKeyChecking no" -i "/var/lib/jenkins/wordaaaa" ubuntu@$(cat txt.txt) 'pwd'
+                ssh -tt -o "StrictHostKeyChecking no" -i "/var/lib/jenkins/wordaaaa" ubuntu@$(cat txt.txt) 'pwd' 'sudo docker pull cheba2011/neslojno:latest;sudo service docker restart;sudo docker run -d -p 80:80 cheba2011/neslojno:latest'
                 '''
                 
                 }
