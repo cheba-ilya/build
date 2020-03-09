@@ -44,8 +44,6 @@ resource "aws_security_group" "web_server_test" {
 
 }
 
-
-
 output "instance_ips" {
 value = "${aws_instance.web_server_test.public_ip}"
 }
